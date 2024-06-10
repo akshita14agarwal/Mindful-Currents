@@ -1,6 +1,8 @@
+import React from 'react';
+
 import axios from 'axios';
 import {API_NOTIFICATION_MESSAGES, SERVICE_URLS} from '../constants/config';
-const API_URL=' http://localhost:8000';
+const API_URL=' http://localhost:3000';
 const axiosInstance=axios.create({
     baseURL:API_URL,
     timeout: 10000,
@@ -22,7 +24,7 @@ axiosInstance.interceptors.response.use(
         //global loader stopped here
         return processResponse(response);
     },
-    function(rerror){
+    function(error){
         //stop global leader here
         return Promise.reject(processError(error)) ;
 
