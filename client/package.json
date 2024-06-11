@@ -12,12 +12,9 @@
     "axios": "^1.7.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-<<<<<<< HEAD
-=======
-    "react-router-dom": "^6.23.1",
->>>>>>> df3e532e935ced4777e3cd8751fa5d11b2c045c8
-    "react-scripts": "^3.0.1",
-    "web-vitals": "^2.1.4"
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
