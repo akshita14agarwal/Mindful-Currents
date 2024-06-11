@@ -16,7 +16,7 @@ export const signupUser = async(request, response) =>{
         await newUser.save();
         return response.status(200).json({ msg: 'signup successfull'})
     } catch (error){
-        return respone.status(500).json({msg: 'Error while signup of user'})
+        return response.status(500).json({msg: 'Error while signup of user'})
     }
 
 }
