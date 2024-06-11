@@ -24,6 +24,7 @@ export const API_NOTIFICATION_MESSAGES = {
      
 }
 
+
 //API service calls here
 export const SERVICE_URLS ={
     userSignup: { url:'/signup' , method: 'POST'},

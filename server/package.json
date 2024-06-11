@@ -15,7 +15,10 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+<<<<<<< HEAD
+=======
     "jsonwebtoken": "^9.0.2",
+>>>>>>> df3e532e935ced4777e3cd8751fa5d11b2c045c8
     "mongoose": "^8.4.1"
   },
   "devDependencies": {

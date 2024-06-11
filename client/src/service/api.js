@@ -24,6 +24,7 @@ axiosInstance.interceptors.response.use(
         //global loader stopped here
         return processResponse(response);
     },
+
     function(error){
         //stop global leader here
         return Promise.reject(processError(error)) ;

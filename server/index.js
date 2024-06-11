@@ -15,6 +15,8 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use('/', Router);
 
 
+
+
 const port = 3000;
 app.listen(port, () => console.log(`Server is running successfully on PORT ${port}`));
 const USERNAME = process.env.DB_USERNAME;
