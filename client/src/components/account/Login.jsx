@@ -1,9 +1,16 @@
-import{useState} from 'react';
+
+
+import React from 'react';
+ import{useState, useContext} from 'react';
 
 import {Box, TextField, Button, styled, Typography} from '@mui/material';
 
 import {API} from '../../service/api';
 
+import {API} from '../../service/api';
+import {DataContext} from '../../context/DataProvider';
+
+import { useNavigate } from 'react-router-dom';
 const Component = styled(Box)`
 width: 400px;
 margin:auto;
@@ -52,36 +59,16 @@ const Error = styled(Typography)`
 const Text = styled(Typography)`
     color: #878787;
     font-size: 16px;
-`;
-const signupInitialValues = {
-    name: '',
-    username: '',
-    password: '',
-};
 
-const Login = () => {
+`;
+
+const Login = (isUserAuthenticated) => {
 
     const imageURL = 'https://www.sesta.it/wp-content/uploads/2021/03/logo-blog-sesta-trasparente.png';
 
     const[account, toggleAccount]= useState('login');
-    const[signup, setSignup]=useState(signupInitialValues);
-    const[error,setError]=useState('');
     const toggleSignup = () =>{
         account === 'signup' ? toggleAccount('login'): toggleAccount('signup');
-    }
-    const onInputChange = (e) => {
-        setSignup({ ...signup, [e.target.name]: e.target.value });
-    }
-    const signupUser = async() => {
-        let response =await API.userSignup(signup);
-        if(response.isSuccess){
-            setError('');
-            setSignup(signupInitialValues);
-            toggleAccount('login')
-        }else{
-            setError('Something went wrong.PLease try again later');
-
-        }
     }
     return(
         <Component>
@@ -92,9 +79,6 @@ const Login = () => {
                         <Wrapper>
                             <TextField variant="standard" label="Enter username"/>
                             <TextField variant="standard" label="Enter password"/>
-
-                            {error && <Error>{error}</Error>}
-
                             <LoginButton variant="contained">Login</LoginButton>
                             <Text style={{textAlign: 'center'}}>OR</Text>
                             <SignupButton onClick={()=> toggleSignup()}>Create an account</SignupButton>
