@@ -52,5 +52,5 @@ export const loginuser= async(request, response) => {
 }
 
 
-// code to generate secret key is : require('crypto').randomlBytes(64).toString('hex');
+// code to generate secret key is : require('crypto').randomBytes(64).toString('hex');
 
