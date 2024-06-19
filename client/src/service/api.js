@@ -1,8 +1,7 @@
-import React from 'react';
 
 import axios from 'axios';
 import {API_NOTIFICATION_MESSAGES, SERVICE_URLS} from '../constants/config';
-const API_URL=' http://localhost:3000';
+const API_URL=' http://localhost:5000';
 const axiosInstance=axios.create({
     baseURL:API_URL,
     timeout: 10000,
