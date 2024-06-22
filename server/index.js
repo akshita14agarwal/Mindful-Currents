@@ -17,7 +17,7 @@ app.use('/', Router);
 
 
 
-const port = 3000;
+const port = 8000;
 app.listen(port, () => console.log(`Server is running successfully on PORT ${port}`));
 const USERNAME = process.env.DB_USERNAME;
 const PASSWORD = process.env.DB_PASSWORD;

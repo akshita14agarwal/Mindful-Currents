@@ -28,5 +28,7 @@ export const API_NOTIFICATION_MESSAGES = {
 //API service calls here
 export const SERVICE_URLS ={
     userSignup: { url:'/signup' , method: 'POST'},
-    userLogin:{ url:'/login', method: 'POST'}  //this url is end point from routes
+    userLogin:{ url:'/login', method: 'POST'} , //this url is end point from routes
+    uploadFile: {url: '/file/upload', method: 'POST'},
+    createPost: {url:'create', method: 'POST'}
 }
