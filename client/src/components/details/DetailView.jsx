@@ -13,7 +13,7 @@ import Comments from './comments/Comments';
 
 const Container = styled(Box)(({ theme }) => ({
     margin: '50px 100px',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('md')]: {  //below medium screen(less than half of fullscreen) margin=0 taken above it margin of 50px-100 px taken. this is done to make the webpg responsive
         margin: 0
     },
 }));

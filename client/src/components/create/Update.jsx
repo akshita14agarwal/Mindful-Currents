@@ -4,7 +4,7 @@ import { Box, styled, FormControl, InputBase, Button, TextareaAutosize} from '@m
 import {AddCircle as Add} from '@mui/icons-material';
 
 
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 import { DataContext } from '../../context/DataProvider';
 
@@ -61,7 +61,7 @@ const initialPost={
 
 
 
-const CreatePost =() => {
+const Update =() => {
 
     
 
@@ -72,8 +72,19 @@ const CreatePost =() => {
 
     const location = useLocation();
     const navigate = useNavigate();
+    const { id } = useParams();
 
     const url = post.picture? post.picture: 'https://images.unsplash.com/photo-1543128639-4cb7e6eeef1b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwc2V0dXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80'
+
+    useEffect(() => {
+        const fetchData = async () => {
+            let response = await API.getPostById(id);
+            if (response.isSuccess) {
+                setPost(response.data);
+            }
+        }
+        fetchData();
+    }, []);
 
     useEffect(()=>{
         const getImage = async()=>{
@@ -100,11 +111,13 @@ const CreatePost =() => {
         setPost({ ...post,[e.target.name]: e.target.value })
     }
 
-    const savePost = async ()=>{
-      let response =  await API.createPost(post); 
-      if(response.isSuccess){
-        navigate('/');
-      }
+    const updateBlogPost = async () => {
+        let response=await API.updatePost(post);
+        if(response.isSuccess){
+            navigate(`/details/${id}`);
+
+        }
+        
     }
 
     return(
@@ -121,8 +134,9 @@ const CreatePost =() => {
                 onChange={(e) => setFile(e.target.files[0])}
                 />
 
-                <InputTextField placeholder= 'Title'  onChange ={(e) => handleChange(e)} name ="title"/>
-                <Button variant="contained" onClick={()=> savePost()}> Publish </Button>
+                //check here once
+                <InputTextField onChange={(e) => handleChange(e)} value={post.title} name='title' placeholder="Title" />
+                <Button onClick={() => updateBlogPost()} variant="contained" color="primary">Update</Button>
             </StyledFormControl>
 
 
@@ -131,6 +145,7 @@ const CreatePost =() => {
             placeholder="Tell your Story...."
             onChange={(e) => handleChange(e)}
             name ="description"
+            value={post.description}
 
             />
 
@@ -138,4 +153,4 @@ const CreatePost =() => {
        
     )
 }
-export default CreatePost;
+export default Update;

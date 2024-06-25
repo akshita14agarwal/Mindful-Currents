@@ -21,6 +21,8 @@ export const updatePost = async (request, response) => {
             response.status(404).json({ msg: 'Post not found' })
         }
         
+        //$set used when we want to replace object in an array 
+        //$addToSet used when we want to append an object in an array
         await Post.findByIdAndUpdate( request.params.id, { $set: request.body })
 
         response.status(200).json('post updated successfully');
