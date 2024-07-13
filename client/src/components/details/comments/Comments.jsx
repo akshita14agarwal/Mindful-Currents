@@ -6,7 +6,7 @@ import {API} from '../../../service/api';
 
 //components
 
-import Comment from '/Comment';
+import Comment from '//Comment';
 
 
 
@@ -56,7 +56,7 @@ export const Comments =({post })=>{
 
           }
         }
-        getaData();
+        getData();
 
     }, [post, toggle])
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import React from 'react';
 import { Box } from '@mui/material';
 import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom';
 
@@ -13,7 +13,6 @@ import Update from './components/create/Update';
 import About from './components/about/About';
 import Contact from './components/contact/Contact';
 import Login from './components/account/Login';
-import Update from './components/create/Update';
 
 const PrivateRoute = ({ isAuthenticated, ...props }) => {
   const token = sessionStorage.getItem('accessToken');
